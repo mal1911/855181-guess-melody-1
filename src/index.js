@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {GAME_TIME, ERROR_COUNT} from "./constants";
 import App from './components/app/app.jsx';
 
 const init = () => {
   const settings = {
-    gameTime: 5,
-    errorCount: 30,
+    gameTime: GAME_TIME,
+    errorCount: ERROR_COUNT,
   };
 
   ReactDOM.render(
