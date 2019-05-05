@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import {GAME_TIME, ERROR_COUNT} from "./constants";
-import App from './components/app/app.jsx';
+import App from './components/app/app';
 
 const init = () => {
   const settings = {
@@ -9,13 +9,7 @@ const init = () => {
     errorCount: ERROR_COUNT,
   };
 
-  ReactDOM.render(
-      <App
-        errorCount={settings.errorCount}
-        gameTime={settings.gameTime}
-      />,
-      document.querySelector(`.main`)
-  );
+  render(<App errorCount={settings.errorCount} gameTime={settings.gameTime}/>, document.querySelector(`.main`));
 };
 
 init();

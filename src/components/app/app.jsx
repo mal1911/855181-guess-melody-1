@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import WelcomeScreen from '../welcome-screen/welcome-screen.jsx';
+import WelcomeScreen from '../welcome-screen/welcome-screen';
 
 const App = (props) => {
-  const {gameTime, errorCount} = props;
+
+  const startGameHandler = (evt) => {
+    evt.preventDefault();
+  };
 
   return <WelcomeScreen
-    time={gameTime}
-    errorCount={errorCount}
+    time={props.gameTime}
+    errorCount={props.errorCount}
+    onClick = {startGameHandler}
   />;
 };
 
