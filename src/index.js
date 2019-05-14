@@ -1,15 +1,10 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {GAME_TIME, ERROR_COUNT} from "./constants";
 import App from './components/app/app';
+import {settings, questions} from "./mocks/mocks";
 
 const init = () => {
-  const settings = {
-    gameTime: GAME_TIME,
-    errorCount: ERROR_COUNT,
-  };
-
-  render(<App errorCount={settings.errorCount} gameTime={settings.gameTime}/>, document.querySelector(`.main`));
+  render(<App settings={settings} questions={questions}/>, document.querySelector(`.main`));
 };
 
 init();

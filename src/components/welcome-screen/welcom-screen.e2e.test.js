@@ -1,21 +1,19 @@
 import React from 'react';
-import Enzyme, {shallow} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import WelcomeScreen from './welcome-screen.jsx';
-
-Enzyme.configure({adapter: new Adapter()});
+import {shallow} from 'enzyme';
+import WelcomeScreen from './welcome-screen';
+import {settings} from "../../mocks/mocks";
 
 it(`Simulating button click`, () => {
-  const clickHandler = jest.fn();
+  const handlerClick = jest.fn();
 
   const welcomeScreen = shallow(<WelcomeScreen
-    time={0}
-    errorCount={0}
-    onClick={clickHandler}
+    gameTime={settings.gameTime}
+    errorCount={settings.errorCount}
+    onClick={handlerClick}
   />);
 
   const startButton = welcomeScreen.find(`.welcome__button`);
   startButton.simulate(`click`, {preventDefault() {}});
-  expect(clickHandler).toHaveBeenCalledTimes(1);
+  expect(handlerClick).toHaveBeenCalledTimes(1);
 });
 

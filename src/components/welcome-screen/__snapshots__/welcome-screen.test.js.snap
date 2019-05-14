@@ -39,12 +39,12 @@ exports[`WelcomeScreen correctly renders 1`] = `
   >
     <li>
       За 
-      0
+      7
        минут нужно ответить на все вопросы.
     </li>
     <li>
       Можно допустить 
-      0
+      4
        ошибки.
     </li>
   </ul>
