@@ -22,7 +22,7 @@ export const questions = [
           src: `https://upload.wikimedia.org/wikipedia/commons/1/1f/Uganda_flag_and_national_anthem_-_Oh_Uganda_Land_o.ogg`,
           genre: `rock`,
         },
-      ]
+      ],
   },
   {
     type: `artist`,
@@ -43,11 +43,57 @@ export const questions = [
         picture: `http://placehold.it/134x134`,
         artist: `Jim Beam`,
       },
-    ]
-  }
+    ],
+  },
 ];
 
 export const settings = {
   gameTime: GAME_TIME,
   errorCount: ERROR_COUNT,
+};
+
+export const mockArtist = {
+  type: `artist`,
+  song: {
+    artist: `Jim Beam`,
+    src: ``,
+  },
+  answers: [
+    {
+      picture: `http://placehold.it/134x134`,
+      artist: `John Snow`,
+    },
+    {
+      picture: `http://placehold.it/134x134`,
+      artist: `Jack Daniels`,
+    },
+    {
+      picture: `http://placehold.it/134x134`,
+      artist: `Jim Beam`,
+    },
+  ],
+};
+
+export const mockGenre = {
+  type: `genre`,
+  genre: `rock`,
+  answers:
+    [
+      {
+        src: ``,
+        genre: `rock`,
+      },
+      {
+        src: ``,
+        genre: `blues`,
+      },
+      {
+        src: ``,
+        genre: `jazz`,
+      },
+      {
+        src: ``,
+        genre: `rock`,
+      },
+    ],
 };

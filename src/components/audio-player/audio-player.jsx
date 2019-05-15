@@ -37,46 +37,51 @@ export default class AudioPlayer extends PureComponent {
   }
 
   componentDidMount() {
-    const audio = this._audioRef.current;
-    audio.src = this.props.src;
+    if (this.props.src) {
+      const audio = this._audioRef.current;
+      audio.src = this.props.src;
 
-    audio.oncanplaythrough = () => this.setState({
-      isLoading: false,
-    });
-
-    audio.onplay = () => {
-      this.setState({
-        isPlaying: true,
+      audio.oncanplaythrough = () => this.setState({
+        isLoading: false,
       });
-    };
 
-    audio.onpause = () => this.setState({
-      isPlaying: false,
-    });
+      audio.onplay = () => {
+        this.setState({
+          isPlaying: true,
+        });
+      };
 
-    audio.ontimeupdate = () => this.setState({
-      progress: audio.currentTime
-    });
+      audio.onpause = () => this.setState({
+        isPlaying: false,
+      });
+
+      audio.ontimeupdate = () => this.setState({
+        progress: audio.currentTime
+      });
+    }
   }
 
   componentDidUpdate() {
-    const audio = this._audioRef.current;
-
-    if (this.props.isPlaying) {
-      audio.play();
-    } else {
-      audio.pause();
+    if (this.props.src) {
+      const audio = this._audioRef.current;
+      if (this.props.isPlaying) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
     }
   }
 
   componentWillUnmount() {
-    const audio = this._audioRef.current;
+    if (this.props.src) {
+      const audio = this._audioRef.current;
 
-    audio.oncanplaythrough = null;
-    audio.onplay = null;
-    audio.onpause = null;
-    audio.ontimeupdate = null;
-    audio.src = ``;
+      audio.oncanplaythrough = null;
+      audio.onplay = null;
+      audio.onpause = null;
+      audio.ontimeupdate = null;
+      audio.src = ``;
+    }
   }
 
   _onPlayButtonClick() {
@@ -88,5 +93,5 @@ export default class AudioPlayer extends PureComponent {
 AudioPlayer.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
   onPlayButtonClick: PropTypes.func.isRequired,
-  src: PropTypes.string.isRequired,
+  src: PropTypes.string,
 };
