@@ -1,13 +1,13 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import ArtistQuestionScreen from "./artist-question-screen";
-import {questions} from "../../mocks/mocks";
+import {mockArtist} from "../../mocks/mocks";
 
 it(`When user answers artist question form is not change`, () => {
   const handlerChange = jest.fn();
 
   const artistQuestion = shallow(<ArtistQuestionScreen
-    question={questions[1]}
+    question={mockArtist}
     onAnswer={handlerChange}
   />);
 

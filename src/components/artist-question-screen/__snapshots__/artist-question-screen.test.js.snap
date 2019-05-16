@@ -88,9 +88,15 @@ exports[`ArtistQuestionScreen correctly renders 1`] = `
     >
       <button
         className="track__button track__button--play"
+        disabled={true}
+        onClick={[Function]}
         type="button"
       />
-      <audio />
+      <div
+        className="track__status"
+      >
+        <audio />
+      </div>
     </div>
     <form
       className="game__artist"
@@ -113,7 +119,7 @@ exports[`ArtistQuestionScreen correctly renders 1`] = `
           <img
             alt="John Snow"
             className="artist__picture"
-            src="path.jpg"
+            src="http://placehold.it/134x134"
           />
           John Snow
         </label>
@@ -135,7 +141,7 @@ exports[`ArtistQuestionScreen correctly renders 1`] = `
           <img
             alt="Jack Daniels"
             className="artist__picture"
-            src="path.jpg"
+            src="http://placehold.it/134x134"
           />
           Jack Daniels
         </label>
@@ -157,7 +163,7 @@ exports[`ArtistQuestionScreen correctly renders 1`] = `
           <img
             alt="Jim Beam"
             className="artist__picture"
-            src="path.jpg"
+            src="http://placehold.it/134x134"
           />
           Jim Beam
         </label>

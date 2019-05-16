@@ -1,14 +1,15 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ArtistQuestionScreen from "./artist-question-screen";
+import AudioPlayer from './audio-player';
 import {mockArtist} from "../../mocks/mocks";
 
-it(`ArtistQuestionScreen correctly renders`, () => {
+it(`AudioPlayer correctly renders`, () => {
   const handlerClick = jest.fn();
   const tree = renderer
-    .create(<ArtistQuestionScreen
-      question={mockArtist}
-      onAnswer={handlerClick}
+    .create(<AudioPlayer
+      isPlaying={false}
+      onPlayButtonClick={handlerClick}
+      src={mockArtist.song.src}
     />).toJSON();
   expect(tree).toMatchSnapshot();
 });
