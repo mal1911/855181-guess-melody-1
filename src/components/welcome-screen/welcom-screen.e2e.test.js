@@ -3,6 +3,8 @@ import {shallow} from 'enzyme';
 import WelcomeScreen from './welcome-screen';
 import {settings} from "../../mocks/mocks";
 
+const mockEvent = {preventDefault() {}};
+
 it(`Simulating button click`, () => {
   const handlerClick = jest.fn();
 
@@ -13,7 +15,7 @@ it(`Simulating button click`, () => {
   />);
 
   const startButton = welcomeScreen.find(`.welcome__button`);
-  startButton.simulate(`click`, {preventDefault() {}});
+  startButton.simulate(`click`, mockEvent);
   expect(handlerClick).toHaveBeenCalledTimes(1);
 });
 

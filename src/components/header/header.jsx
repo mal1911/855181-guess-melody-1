@@ -1,6 +1,8 @@
 import React from 'react';
+import ErrorScreen from '../error-screen/error-screen';
+import PropTypes from "prop-types";
 
-const Header = () => (
+const Header = (props) => (
   <header className="game__header">
     <a className="game__back" href="#">
       <span className="visually-hidden">Сыграть ещё раз</span>
@@ -15,12 +17,12 @@ const Header = () => (
       <span className="timer__dots">:</span>
       <span className="timer__secs">00</span>
     </div>
-    <div className="game__mistakes">
-      <div className="wrong"/>
-      <div className="wrong"/>
-      <div className="wrong"/>
-    </div>
+    <ErrorScreen mistakes={props.mistakes}/>
   </header>
 );
+
+Header.propTypes = {
+  mistakes: PropTypes.number.isRequired,
+};
 
 export default Header;

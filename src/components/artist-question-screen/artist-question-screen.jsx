@@ -13,12 +13,12 @@ export default class ArtistQuestionScreen extends PureComponent {
   }
 
   render() {
-    const {question, onAnswer} = this.props;
+    const {question, onAnswer, mistakes} = this.props;
     const {isPlaying} = this.state;
     const {answers, song} = question;
 
     return <section className="game game--artist">
-      <Header/>
+      <Header mistakes={mistakes}/>
       <section className="game__screen">
         <h2 className="game__title">Кто исполняет эту песню?</h2>
         <div className="game__track">
@@ -28,9 +28,15 @@ export default class ArtistQuestionScreen extends PureComponent {
             src={song.src}
           />
         </div>
-        <form className="game__artist" onChange={onAnswer}>
+        <form className="game__artist">
           {answers.map((it, i) => <div className="artist" key={i}>
-            <input className="artist__input visually-hidden" type="radio" name="answer" value={`artist-${i}`} id={`artist-${i}`}/>
+            <input className="artist__input visually-hidden"
+              type="radio"
+              name="answer"
+              value={`artist-${i}`}
+              id={`artist-${i}`}
+              onClick={() => onAnswer(it)}
+            />
             <label className="artist__name" htmlFor={`artist-${i}`}>
               <img className="artist__picture" src={it.picture} alt={it.artist}/>
               {it.artist}
@@ -43,6 +49,7 @@ export default class ArtistQuestionScreen extends PureComponent {
 }
 
 ArtistQuestionScreen.propTypes = {
+  mistakes: PropTypes.number.isRequired,
   onAnswer: PropTypes.func.isRequired,
   question: PropTypes.shape({
     answers: PropTypes.arrayOf(PropTypes.shape({
@@ -50,8 +57,8 @@ ArtistQuestionScreen.propTypes = {
       picture: PropTypes.string.isRequired,
     })).isRequired,
     song: PropTypes.shape({
-      artist: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired,
+      artist: PropTypes.string,
+      src: PropTypes.string,
     }).isRequired,
     type: PropTypes.oneOf([`genre`, `artist`]).isRequired,
   }).isRequired,

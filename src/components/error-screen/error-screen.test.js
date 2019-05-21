@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Header from './header';
+import ErrorScreen from './error-screen';
 import {settings} from '../../mocks/mocks';
 
-it(`Header correctly renders`, () => {
+it(`ErrorScreen correctly renders`, () => {
   const tree = renderer
-    .create(<Header mistakes={settings.errorCount} />).toJSON();
+    .create(<ErrorScreen mistakes={settings.errorCount} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

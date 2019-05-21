@@ -70,6 +70,9 @@ exports[`Header correctly renders 1`] = `
     <div
       className="wrong"
     />
+    <div
+      className="wrong"
+    />
   </div>
 </header>
 `;
